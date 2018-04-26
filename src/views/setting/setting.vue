@@ -1,31 +1,23 @@
 <template>
-    <div id="app">
-        <img src="./assets/logo.png">
-        <ul>
-            <li v-for="li of list">
-                <router-link :to="li.url">{{li.name}}</router-link>
-            </li>
-        </ul>
-        <router-view></router-view>
+    <div>
+        <h1>{{ msg }}</h1>
+        <h2>Essential Links~~~~~~~setting~~~~~~</h2>
     </div>
 </template>
 
 <script>
 export default {
-    name: 'app',
+    name: 'setting',
     data () {
         return {
-            list: [
-                // { name: '/', url: 'dashbard' },
-                { name: 'setting', url: 'setting' },
-            ]
+            msg: 'Welcome to Your Vue.js setting'
         }
     }
 }
 </script>
 
 <style lang="scss">
-#app {
+#bpp {
     font-family: 'Avenir', Helvetica, Arial, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;

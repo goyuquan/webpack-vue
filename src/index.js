@@ -1,11 +1,9 @@
 import Vue from 'vue';
-import App from './App.vue';
-
-if (process.env.NODE_ENV !== 'production') {
-    console.log('Looks like we are in development mode!');
-}
+import App from './App';
+import router from './router';
 
 new Vue({
     el: '#app',
+    router,
     render: h => h(App)
 })

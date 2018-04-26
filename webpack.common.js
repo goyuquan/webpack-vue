@@ -46,6 +46,12 @@ module.exports = {
         new webpack.NamedModulesPlugin(),
         new webpack.HotModuleReplacementPlugin()
     ],
+    resolve: {
+        alias: {
+          'vue$': 'vue/dist/vue.esm.js'
+        },
+        extensions: ['*', '.js', '.vue', '.json']
+    },
     optimization: {
         splitChunks: {
             chunks: "async",
