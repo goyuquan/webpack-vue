@@ -6,7 +6,7 @@ import Setting from './views/setting/setting';
 Vue.use(VueRouter)
 
 const routes = [
-    { path: '/dashboad', component: Dashboard },
+    { path: '/', component: Dashboard },
     { path: '/setting', component: Setting },
 ];
 
