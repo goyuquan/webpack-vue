@@ -41,7 +41,8 @@ module.exports = {
         new VueLoaderPlugin(),
         new CleanWebpackPlugin(['dist']),
         new HtmlWebpackPlugin({
-            template: "./index.html"
+            template: "./index.html",
+            favicon: './favicon.ico'
         }),
         new webpack.NamedModulesPlugin(),
         new webpack.HotModuleReplacementPlugin()
