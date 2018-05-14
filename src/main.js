@@ -1,9 +1,11 @@
-  function component() {
-    var element = document.createElement('div');
+import Vue from 'vue';
+import App from './App';
+import router from './router';
+import store from './store/module';
 
-    element.innerHTML = "hello ~~~~~";
-
-    return element;
-  }
-
-  document.body.appendChild(component());
+new Vue({
+    el: '#app',
+    router,
+    store,
+    render: h => h(App)
+})
