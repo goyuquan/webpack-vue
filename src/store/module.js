@@ -2,7 +2,7 @@ import Vue from 'vue';
 import Vuex from 'vuex';
 import cart from './modules/cart';
 import products from './modules/products';
-import createLogger from '../plugins/logger'
+import createLogger from '../common/logger'
 
 Vue.use(Vuex);
 

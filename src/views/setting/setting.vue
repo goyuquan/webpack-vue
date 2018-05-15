@@ -1,10 +1,8 @@
 <template src="./setting.html"> </template>
 
 <script>
-import Vue from 'vue';
 import { mapState, mapGetters } from 'vuex';
-import common from '../../common.js';
-
+import api from "../../api"
 export default {
     name: 'setting',
     data () {
@@ -21,9 +19,14 @@ export default {
             word: state => state.word,
         }),
         ...mapGetters([
-            'listName',
-            'showUser',
+            // 'listName',
+            // 'showUser',
         ])
+    },
+    mounted() {
+      api.home.test().then(res => {
+        console.log(res);
+      })
     },
     methods: {
         addone() {
