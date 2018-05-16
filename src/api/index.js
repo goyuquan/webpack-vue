@@ -12,7 +12,7 @@ const api = {
     pre: "thispre",
     one: () => http.get({url: prefix.abc + this.pre + 'abc', params: {name: 'jim'}}),
     bcd: () => http.get({url: prefix.bcd + 'bcd', params: {name: 'Green'}}),
-    test: () => http.get({url: prefix.test + '/book/1220562'}),
+    test: () => http.get({url: prefix.test + '/book/1220562', data: {name: 'Jim'}}),
   }
 }
 
