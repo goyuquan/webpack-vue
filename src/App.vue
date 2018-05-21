@@ -22,7 +22,7 @@ export default {
         }
     },
     mounted() {
-      document.body.removeChild(document.getElementById('Loading'));
+      document.body.removeChild(document.getElementById('loader'));
     }
 }
 </script>

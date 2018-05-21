@@ -1,62 +1,21 @@
 <!doctype html>
 <html>
-  <head>
-    <title>title</title>
-    <style type="text/css">
-      #Loading {
-        top:50%;
-        left:50%;
-        position: absolute;
-        -webkit-transform: translateY(-50%)  translateX(-50%);
-        transform: translateY(-50%)  translateX(-50%);
-        z-index:100;
-      }
-      @-webkit-keyframes ball-beat {
-        50% {
-          opacity: 0.2;
-          -webkit-transform: scale(0.75);
-          transform: scale(0.75); }
-
-        100% {
-          opacity: 1;
-          -webkit-transform: scale(1);
-          transform: scale(1); } }
-
-      @keyframes ball-beat {
-        50% {
-          opacity: 0.2;
-          -webkit-transform: scale(0.75);
-          transform: scale(0.75); }
-
-        100% {
-          opacity: 1;
-          -webkit-transform: scale(1);
-          transform: scale(1); } }
-
-      .ball-beat > div {
-        background-color: #279fcf;
-        width: 15px;
-        height: 15px;
-        border-radius: 100% !important;
-        margin: 2px;
-        -webkit-animation-fill-mode: both;
-        animation-fill-mode: both;
-        display: inline-block;
-        -webkit-animation: ball-beat 0.7s 0s infinite linear;
-        animation: ball-beat 0.7s 0s infinite linear; }
-      .ball-beat > div:nth-child(2n-1) {
-        -webkit-animation-delay: 0.35s !important;
-        animation-delay: 0.35s !important; }
-    </style>
-  </head>
-  <body>
-    <div id="Loading">
-      <div class="loader-inner ball-beat">
-        <div></div>
-        <div></div>
-        <div></div>
-      </div>
-    </div>
-    <div id="app"> </div>
-  </body>
+<head>
+  <title>title</title>
+  <style type="text/css">
+  #loader { display: flex; justify-content: center; align-items: center; height: 100vh; }
+  .ball { width: 22px; height: 22px; border-radius: 11px; margin: 0 10px; animation: 2s bounce ease infinite; }
+  .blue { background-color: #4285F5; }
+  .red { background-color: #EA4436; animation-delay: .25s; }
+  .yellow { background-color: #FBBD06; animation-delay: .5s; }
+  .green { background-color: #34A952; animation-delay: .75s; }
+  @keyframes bounce { 50% { transform: translateY(25px); } }
+  </style>
+</head>
+<body>
+  <div id="loader">
+    <div class="blue ball"></div> <div class="red ball"></div> <div class="yellow ball"></div> <div class="green ball"></div>
+  </div>
+  <div id="app"> </div>
+</body>
 </html>
