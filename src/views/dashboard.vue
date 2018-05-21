@@ -1,6 +1,6 @@
 <template>
   <div>
-    <img src="../../assets/logo.png">
+    <img src="../assets/logo.png">
     <ul>
       <li v-for="(li, index) of list" :key="index">
         <router-link :to="li.url">{{li.name}}</router-link>

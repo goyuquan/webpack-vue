@@ -7,7 +7,7 @@ if (token) {
   axios.defaults.headers.common['Authorization'] = 'token'
 }
 
-axios.interceptors.request.use(function (config) {
+axios.interceptors.request.use( config => {
   console.log('request interceptor...')
   return config
 }, function (error) {
@@ -15,7 +15,7 @@ axios.interceptors.request.use(function (config) {
   return Promise.reject(error)
 });
 
-axios.interceptors.response.use(function (response) {
+axios.interceptors.response.use( response => {
   if (response.status === 200) {
     console.log('response interceptor...200', response);
   }
@@ -27,7 +27,7 @@ axios.interceptors.response.use(function (response) {
 
 function request(options) {
   return axios(options)
-  .catch(function (error) {
+  .catch( error => {
     if (error.response) {
       console.log(`The request was made and the server responded with a status code that falls out of the range of 2xx`)
       console.log('error.response.data', error.response.data)
