@@ -20,6 +20,9 @@ export default {
                 { name: 'setting', url: 'setting' },
             ]
         }
+    },
+    mounted() {
+      document.body.removeChild(document.getElementById('Loading'));
     }
 }
 </script>

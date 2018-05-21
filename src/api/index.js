@@ -9,10 +9,10 @@ const prefix = {
 
 const api = {
   home: {
-    pre: "thispre",
-    one: () => http.get({url: prefix.abc + this.pre + 'abc', params: {name: 'jim'}}),
-    bcd: () => http.get({url: prefix.bcd + 'bcd', params: {name: 'Green'}}),
-    test: () => http.get({url: prefix.test + '/book/1220562', data: {name: 'Jim'}}),
+    pre: "v2",
+    one: param => http.get({url: prefix.abc + this.pre + 'abc', data: param}),
+    bcd: param => http.get({url: prefix.bcd + 'bcd', data: params}),
+    test: param => http.get({url: prefix.test + '/book/1220562', data: param}),
   }
 }
 
