@@ -34,9 +34,6 @@ export default {
         },
         changeName() {
             this.$store.commit('chageName', "Green")
-        },
-        logSth() {
-            common()
         }
     }
 }

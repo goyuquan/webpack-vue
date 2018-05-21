@@ -4,17 +4,23 @@ const _products = [
   {"id": 3, "title": "Charli XCX - Sucker CD", "price": 19.99, "inventory": 5}
 ]
 
-export default {
-  getProducts (cb) {
-    setTimeout(() => cb(_products), 100)
-  },
+const myLoginRoutine = user => new Promise ((resolve, reject) => 
+  Promise.resolve({
+    token: "___________token___________"
+  })
+)
 
-  buyProducts (products, cb, errorCb) {
-    setTimeout(() => {
-      // simulate random checkout failure.
-      (Math.random() > 0.5 || navigator.userAgent.indexOf('PhantomJS') > -1)
-        ? cb()
-        : errorCb()
-    }, 100)
-  }
+function getProducts (cb) {
+  setTimeout(() => cb(_products), 100)
 }
+
+function buyProducts (products, cb, errorCb) {
+  setTimeout(() => {
+    // simulate random checkout failure.
+    (Math.random() > 0.5 || navigator.userAgent.indexOf('PhantomJS') > -1)
+    ? cb()
+    : errorCb()
+  }, 100)
+}
+
+export default { myLoginRoutine, getProducts, buyProducts }
