@@ -1,4 +1,4 @@
-import  http  from "./http";
+// import  http  from "./http";
 
 const prefix = {
   sample: 'https://api.douban.com/v2/book/1220562',

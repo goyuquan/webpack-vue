@@ -1,7 +1,7 @@
 <template src="./nest.html"> </template>
 
 <script>
-import { mapState, mapGetters } from 'vuex';
+import { mapState, mapGetters } from 'vuex'
 import api from "../../../api"
 export default {
     name: 'nest',

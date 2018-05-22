@@ -1,39 +1,45 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
-import appWrap from './views/appWrap';
-import dashboard from './views/dashboard';
-import pageNotFound from './views/pageNotFound';
-import login from './views/auth/login';
-import Setting from './views/setting/setting';
-import nestWrap from './views/nest//nestWrap';
-import nest from './views/nest/nest/nest';
-import nestDetail from './views/nest/nestDetail/nestDetail';
 import store from './store'
 
 Vue.use(VueRouter)
+
+const config = {
+  appWrap: () => import('./views/appWrap.vue'),
+  login: () => import('./views/auth/login.vue'),
+  dashboard: () => import('./views/dashboard.vue'),
+  pageNotFound: () => import('./views/pageNotFound.vue'),
+  //
+  setting: () => import('./views/setting/setting.vue'),
+  nest: {
+    nestWrap: () => import(/* webpackChunkName: "nest" */ './views/nest/nestWrap.vue'),
+    nest: () => import(/* webpackChunkName: "nest" */ './views/nest/nest/nest.vue'),
+    // nestDetail: () => import('./views/nest/nestDetail/nestDetail.vue'),
+  }
+}
 
 const routes = [
   {
     name: '首页',
     path: '/',
-    component: appWrap,
+    component: config.appWrap,
     children: [
-      { name: '登录', path: 'login', component: login, meta: { escapeAuth: true } },
-      { name: '设置', path: 'setting', component: Setting },
+      { name: '登录', path: 'login', component: config.login, meta: { escapeAuth: true } },
+      { name: '设置', path: 'setting', component: config.setting },
       {
         name: '嵌套组件',
         path: 'nest',
-        component: nestWrap,
+        component: config.nest.nestWrap,
         children: [
-          { name: '嵌套详情', path: 'detail', component: nestDetail },
-          { path: '', component: nest }
+          // { name: '嵌套详情', path: 'detail', component: config.nest.nestDetail },
+          { path: '', component: config.nest.nest }
         ]
       },
-      { name: '仪表盘', path: 'dashboard', component: dashboard },
+      { name: '仪表盘', path: 'dashboard', component: config.dashboard },
       { path: '', redirect: 'dashboard' },
-      { name: '找不到页面', path: '*', component: pageNotFound }
+      { name: '找不到页面', path: '*', component: config.pageNotFound }
     ]
-  },
+  }
 ];
 
 const router = new VueRouter({
