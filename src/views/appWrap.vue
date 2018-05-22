@@ -4,6 +4,6 @@
 
 <script>
 export default {
-    name: 'nestIndex'
+    name: 'appWrap'
 }
 </script>
