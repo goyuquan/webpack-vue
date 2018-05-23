@@ -9,12 +9,12 @@ const config = {
   login: () => import('./views/auth/login.vue'),
   dashboard: () => import('./views/dashboard.vue'),
   pageNotFound: () => import('./views/pageNotFound.vue'),
-  //
+
   setting: () => import('./views/setting/setting.vue'),
   nest: {
     nestWrap: () => import(/* webpackChunkName: "nest" */ './views/nest/nestWrap.vue'),
     nest: () => import(/* webpackChunkName: "nest" */ './views/nest/nest/nest.vue'),
-    // nestDetail: () => import('./views/nest/nestDetail/nestDetail.vue'),
+    nestDetail: () => import(/* webpackChunkName: "nest" */'./views/nest/nestDetail/nestDetail.vue'),
   }
 }
 
@@ -31,7 +31,7 @@ const routes = [
         path: 'nest',
         component: config.nest.nestWrap,
         children: [
-          // { name: '嵌套详情', path: 'detail', component: config.nest.nestDetail },
+          { name: '嵌套详情', path: 'detail', component: config.nest.nestDetail },
           { path: '', component: config.nest.nest }
         ]
       },
@@ -42,9 +42,11 @@ const routes = [
   }
 ];
 
+const mode = process.env.NODE_ENV === 'production' ? 'history' : 'hash'
+
 const router = new VueRouter({
   routes,
-  // mode: 'history', //不显示#
+  // mode, //不显示#
   linkActiveClass: 'active'
 });
 
@@ -52,7 +54,6 @@ const loggedIn = true
 // const loggedIn = store.getters.isAuthenticated //TODO
 
 router.beforeEach((to, from, next) => {
-  console.log('______________beforeEach', to);
   if (!to.matched.some(record => record.meta.escapeAuth)) {
     if (!loggedIn) {
       next({
@@ -65,6 +66,12 @@ router.beforeEach((to, from, next) => {
   } else {
     next() // 确保一定要调用 next()
   }
+})
+
+router.afterEach((to, from) => {
+  const too = []
+  for (let v of to.matched) { too.push({name: v.name, path: v.path}) }
+  store.commit('updateBreadcrumb', too) //更新面包屑
 })
 
 export default router;

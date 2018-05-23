@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <button type="button" @click="onLogout()">退出</button>
+    <button type="button" @click="onLogout()">退出logout</button>
     <router-view></router-view>
   </div>
 </template>

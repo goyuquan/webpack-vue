@@ -1,10 +1,10 @@
 import shop from '../../api/shop'
 import http from '../../api/http'
-import router from '../../router'
 
 const state = {
   status: null,
-  token: localStorage.getItem('token') || ''
+  token: localStorage.getItem('token') || '',
+  breadcrumb: []
 }
 
 const getters = {
@@ -25,13 +25,15 @@ const mutations = {
   logOut (state) {
     state.status = false
     localStorage.removeItem('token')
+  },
+  updateBreadcrumb (state, matched) {
+    state.breadcrumb = matched
   }
 }
 
 const actions = {
   logOut ({commit}) {
     commit('logOut')
-    router.push('/login')
   }
 }
 
