@@ -1,20 +1,20 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import store from './store'
+import store from '../store'
 
-import wrap from './component/wrap.vue'
-import pageNotFound from './page/pageNotFound.vue'
+import wrap from '../component/wrap.vue'
+import pageNotFound from '../component/pageNotFound.vue'
 
 Vue.use(VueRouter)
 
 const config = {
-  login: () => import('./page/auth/login.vue'),
-  dashboard: () => import('./page/dashboard.vue'),
+  login: () => import('../page/auth/login.vue'),
+  dashboard: () => import('../page/dashboard.vue'),
 
-  setting: () => import('./page/setting/setting.vue'),
+  setting: () => import('../page/setting/setting.vue'),
   nest: {
-    nest: () => import(/* webpackChunkName: "nest" */ './page/nest/nest/nest.vue'),
-    nestDetail: () => import(/* webpackChunkName: "nest" */'./page/nest/nestDetail/nestDetail.vue'),
+    nest: () => import(/* webpackChunkName: "nest" */ '../page/nest/nest/nest.vue'),
+    nestDetail: () => import(/* webpackChunkName: "nest" */'../page/nest/nestDetail/nestDetail.vue'),
   }
 }
 
@@ -54,7 +54,7 @@ const loggedIn = true
 // const loggedIn = store.getters.isAuthenticated //TODO
 
 router.beforeEach((to, from, next) => {
-  if (!to.matched.some(record => record.meta.escapeAuth)) {
+  if (!to.matched.some(record => record.meta.escapeAuth)) { //路由守卫
     if (!loggedIn) {
       next({
         path: '/login',

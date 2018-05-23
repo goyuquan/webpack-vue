@@ -25,7 +25,6 @@ export default {
     },
     mounted() {
       api.home.test({name: 'Tim', age: 18}).then(res => {
-        console.log(res);
       })
     },
     methods: {
