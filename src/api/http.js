@@ -8,11 +8,11 @@ if (token) {
 }
 
 axios.interceptors.request.use( config => {
-  window.location.href = "#/login"
   console.log('request interceptor...')
   return config
 }, function (error) {
   if (error.status === 401) {
+    window.location.href = "#/login"
   }
   console.log('request interceptor error')
   return Promise.reject(error)

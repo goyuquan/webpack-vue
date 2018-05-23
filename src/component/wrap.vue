@@ -4,6 +4,6 @@
 
 <script>
 export default {
-    name: 'appWrap'
+    name: 'wrap'
 }
 </script>
