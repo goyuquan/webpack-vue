@@ -15,7 +15,7 @@ const proxy = {
 module.exports = merge(common, {
     devtool: 'inline-source-map',
     devServer: {
-        contentBase: './dist',
+      contentBase: './dist',
         hot: true,
         port: 8082,
         proxy,
